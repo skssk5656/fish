@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">fish</string>
+
+    <string name="login">
+    Login
+    </string>
+
+    <string name="email">
+      Email
+    </string>
+
+    <string name="create_a_fo">
+    Create a FoT Account Sign-up
+    </string>
+
+    <string name="password">
+      Password
+    </string>
+
+    <string name="userid">
+      ID
+    </string>
+
+    <string name="name">
+      Name
+    </string>
+
+    <string name="major">
+      Major
+    </string>
+
+
+    <string name="some">
+낚시대
+    </string>
+
+    <string name="total_gains">
+보안
+    </string>
+
+    <string name ="k">
+        SAFE
+    </string>
+
+    <string name ="k3">
+        Horizon
+    </string>
+
+    <string name ="k4">
+        Horizon
+    </string>
+
+    <string name ="k5">
+        Horizon
+    </string>
+
+    <string name ="k6">
+        Horizon
+    </string>
+
+    <string name="Login">
+Login
+    </string>
+
+    <string name="sign_up">
+Sign-up
+    </string>
+
+    <string name="you_have_an">
+You have an account ? Log-in
+    </string>
+
+    <string name="k2">
+3회
+    </string>
+
+    <string name="search_hint">Search</string>
+    <string name="image_view_description">이미지 뷰에 대한 설명</string>
+    <string name="select_image">이미지 선택</string>
+
+</resources>
+
+

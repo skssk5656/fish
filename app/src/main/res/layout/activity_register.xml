@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipToOutline="true"
+    android:background="@drawable/some_id"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/blur_backgr"
+        android:layout_width="343dp"
+        android:layout_height="412dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/blur_backgr"
+        />
+    <TextView
+        android:id="@+id/sign_up"
+        android:layout_width="98dp"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="139dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="96dp"
+        android:text="@string/sign_up"
+        android:textAppearance="@style/sign_up"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/form"
+        android:layout_width="295dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="164dp"
+        android:background="@drawable/form1" >
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:hint="@string/name"
+            android:singleLine="true"
+            android:textAppearance="@style/password"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/form2"
+        android:layout_width="295dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/form1" >
+
+        <EditText
+            android:id="@+id/major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:hint="@string/major"
+            android:singleLine="true"
+            android:textAppearance="@style/password"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/form3"
+        android:layout_width="295dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="316dp"
+        android:background="@drawable/form1" >
+
+        <EditText
+            android:id="@+id/userid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:hint="@string/userid"
+            android:singleLine="true"
+            android:textAppearance="@style/password"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/form4"
+        android:layout_width="295dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="392dp"
+        android:background="@drawable/form1" >
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:hint="@string/password"
+            android:singleLine="true"
+            android:textAppearance="@style/password"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/principal_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="602dp"
+        android:layout_marginLeft="56dp"
+        android:background="@drawable/principal"
+        android:elevation="2.21dp" >
+
+        <View
+            android:id="@+id/background"
+            android:layout_width="263dp"
+            android:layout_height="54dp"
+            android:background="@drawable/loginbg"
+            />
+
+        <TextView
+            android:id="@+id/sign_up5"
+            android:layout_width="67dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="98dp"
+            android:text="@string/sign_up"
+            android:textAppearance="@style/sign_up"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/you_have_an"
+        android:layout_width="240dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="68dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="673dp"
+        android:text="@string/you_have_an"
+        android:textAppearance="@style/you_have_an"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+</RelativeLayout>
