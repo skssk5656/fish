@@ -1,5 +1,6 @@
 package com.example.fish;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
@@ -21,10 +23,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.internal.FirebaseInstanceIdInternal;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +49,35 @@ public class MainActivity extends AppCompatActivity {
     TextView WEATHER;
     Button btn;
 
+    private int j = 0;
+
     private RequestQueue mRequestQueue;
+
+    private void createNotificationAndIncrease() {
+        j += 1;
+        // 알림을 생성하는 코드
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "default")
+                .setSmallIcon(R.drawable.ome_icon) // 알림 아이콘 설정
+                .setContentTitle("CATCH!") // 알림 제목 설정
+                .setContentText("물고기를 잡았습니다.") // 알림 내용 설정
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
+
+        // 알림을 표시
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        notificationManager.notify(1, builder.build()); // 1은 알림 식별자입니다.
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +113,19 @@ public class MainActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                FirebaseMessaging.getInstance().getToken()
+                                        .addOnCompleteListener(new OnCompleteListener<String>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<String> task) {
+                                                if(!task.isSuccessful()) {
+                                                    Log.w("FCM Token", "토큰 가져오기 실패", task.getException());
+                                                    return;
+                                                }
+                                                String token = task.getResult();
+                                                Log.d("FCM Token", token);
+                                            }
+                                        });
                                 try {
-                                    int j = 0;
                                     JSONObject jsonObject = new JSONObject(response);
                                         String data = jsonObject.getString("SE");
                                         String TEMP = jsonObject.getString("TEMP");
@@ -89,19 +138,15 @@ public class MainActivity extends AppCompatActivity {
                                         DO.setText(Do);
                                         WEATHER.setText(weather);
 
-                                        if(bite.equals("catch.") == true) {
-                                            j += 1;
-                                            // 알림을 생성하는 코드
-                                            NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "default")
-                                                    .setSmallIcon(R.drawable.ome_icon) // 알림 아이콘 설정
-                                                    .setContentTitle("CATCH!") // 알림 제목 설정
-                                                    .setContentText("물고기를 잡았습니다.") // 알림 내용 설정
-                                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
+                                        if(bite.trim().equals("Miss")) {
+                                            Log.d("일치", "Data");
 
-                                            // 알림을 표시
-                                            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
-                                            notificationManager.notify(1, builder.build()); // 1은 알림 식별자입니다.
-
+                                            new Handler().postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    createNotificationAndIncrease();
+                                                }
+                                            }, 5000);
                                         }
                                         BITE.setText(j + "회");
 
