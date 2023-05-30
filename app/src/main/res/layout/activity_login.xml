@@ -59,6 +59,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:hint="@string/password"
+            android:inputType="textPassword"
             android:singleLine="true"
             android:textAppearance="@style/password"
             android:background="@android:color/transparent"
