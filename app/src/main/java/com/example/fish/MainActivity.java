@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
         // 알림을 생성하는 코드
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "default")
-                .setSmallIcon(R.drawable.ome_icon) // 알림 아이콘 설정
-                .setContentTitle("CATCH!") // 알림 제목 설정
-                .setContentText("물고기를 잡았습니다.") // 알림 내용 설정
+                .setSmallIcon(android.R.drawable.ic_dialog_info) // 알림 아이콘 설정
+                .setContentTitle("입질이 발생하였습니다.") // 알림 제목 설정
+                .setContentText("낚시대를 확인해 주세요") // 알림 내용 설정
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
 
         // 알림을 표시
@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void createNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "default")
-                .setSmallIcon(R.drawable.ome_icon) // 알림 아이콘 설정
-                .setContentTitle("경고!") // 알림 제목 설정
-                .setContentText("낚시대에 이상이 감지되었습니다.") // 알림 내용 설정
+                .setSmallIcon(android.R.drawable.ic_dialog_info) // 알림 아이콘 설정
+                .setContentTitle("도난이 의심되는 상황입니다") // 알림 제목 설정
+                .setContentText("낚시대를 확인해 주세요") // 알림 내용 설정
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
@@ -156,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
                                         String weather = jsonObject.getString("WEATHER");
                                         Log.d("MainActivity", "Data: " + bite);
                                         textView.setText(data);
-                                        Temp.setText(TEMP);
-                                        DO.setText(Do);
+                                        Temp.setText(TEMP + "°C");
+                                        DO.setText(Do + "mg");
                                         WEATHER.setText(weather);
 
                                         if(textView.equals("security_on")) {
