@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSmallIcon(android.R.drawable.ic_dialog_info) // 알림 아이콘 설정
                 .setContentTitle("입질이 발생하였습니다.") // 알림 제목 설정
                 .setContentText("낚시대를 확인해 주세요") // 알림 내용 설정
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
+                .setPriority(NotificationCompat.PRIORITY_HIGH); // 알림 우선순위 설정
 
         // 알림을 표시
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSmallIcon(android.R.drawable.ic_dialog_info) // 알림 아이콘 설정
                 .setContentTitle("도난이 의심되는 상황입니다") // 알림 제목 설정
                 .setContentText("낚시대를 확인해 주세요") // 알림 내용 설정
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT); // 알림 우선순위 설정
+                .setPriority(NotificationCompat.PRIORITY_HIGH); // 알림 우선순위 설정
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                                             createNotification();
                                         }
 
-                                        if(previousBite != null && !previousBite.equals(bite)) {
+                                        if(bite.equals("no catch. ")) {
                                             Log.d("일치", "Data");
 
                                             new Handler().postDelayed(new Runnable() {
@@ -174,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
                                                 }
                                             }, 5000);
                                         }
-                                        previousBite = bite;
                                         BITE.setText(j + "회");
 
                                 } catch (JSONException e) {
